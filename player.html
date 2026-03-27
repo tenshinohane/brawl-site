@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>プレイヤー検索</title>
+  <title>プレイヤー検索 | Brawl Fan Site</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -19,22 +19,42 @@
   </header>
 
   <main class="page-wrap">
+    <section class="player-hero">
+      <div class="player-hero-inner">
+        <p class="player-badge">公開プレイヤー検索</p>
+        <h1>プレイヤータグでプロフィールをチェック</h1>
+        <p class="player-hero-text">
+          自分でも他の人でも、プレイヤータグを入力するだけで
+          プロフィール・勝利数・ブロウラー情報を確認できます。
+        </p>
+
+        <div class="player-search-panel">
+          <div class="player-search-box">
+            <input
+              id="playerTag"
+              class="input player-input"
+              type="text"
+              placeholder="#ABC123"
+              autocomplete="off"
+            />
+            <button id="searchBtn" class="btn primary">検索</button>
+          </div>
+
+          <div class="quick-tags">
+            <button class="quick-tag" data-tag="ABC123">#ABC123</button>
+            <button class="quick-tag" data-tag="PLAYER777">#PLAYER777</button>
+            <button class="quick-tag" data-tag="YUZO999">#YUZO999</button>
+          </div>
+
+          <p class="helper-text search-helper">
+            タグは <strong>#</strong> ありでもなしでも検索できます。
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
-      <div class="section-title-row">
-        <h1 class="section-title">プレイヤー検索</h1>
-      </div>
-
-      <div class="player-search-box">
-        <input id="playerTag" class="input player-input" type="text" placeholder="#XXXXXXX" />
-        <button id="searchBtn" class="btn primary">検索</button>
-      </div>
-
-      <p class="helper-text">
-        プレイヤータグを入力して検索します。ログインは不要です。
-      </p>
-
       <div id="status" class="status-box"></div>
-
       <div id="playerResult" class="player-result"></div>
     </section>
   </main>
