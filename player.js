@@ -4,6 +4,7 @@ const searchBtn = document.getElementById("searchBtn");
 const playerTagInput = document.getElementById("playerTag");
 const statusEl = document.getElementById("status");
 const resultEl = document.getElementById("playerResult");
+const quickTagButtons = document.querySelectorAll(".quick-tag");
 
 function normalizeTag(tag) {
   return String(tag || "")
@@ -36,6 +37,26 @@ function renderPlayer(data) {
           <div class="label">クラブ</div>
           <div class="value">${data.clubName || "なし"}</div>
         </div>
+        <div class="stat-box">
+          <div class="label">経験レベル</div>
+          <div class="value">${data.expLevel ?? "-"}</div>
+        </div>
+        <div class="stat-box">
+          <div class="label">最強ブロウラー</div>
+          <div class="value">${data.bestBrawler || "-"}</div>
+        </div>
+        <div class="stat-box">
+          <div class="label">ソロ勝利</div>
+          <div class="value">${data.soloVictories ?? "-"}</div>
+        </div>
+        <div class="stat-box">
+          <div class="label">デュオ勝利</div>
+          <div class="value">${data.duoVictories ?? "-"}</div>
+        </div>
+        <div class="stat-box">
+          <div class="label">3v3勝利</div>
+          <div class="value">${data.trioVictories ?? "-"}</div>
+        </div>
       </div>
     </div>
 
@@ -58,8 +79,8 @@ function renderPlayer(data) {
   `;
 }
 
-async function searchPlayer() {
-  const rawTag = playerTagInput.value.trim();
+async function searchPlayer(tagOverride = null) {
+  const rawTag = tagOverride ?? playerTagInput.value.trim();
   const tag = normalizeTag(rawTag);
 
   resultEl.innerHTML = "";
@@ -69,6 +90,7 @@ async function searchPlayer() {
     return;
   }
 
+  playerTagInput.value = `#${tag}`;
   statusEl.textContent = "読み込み中...";
 
   try {
@@ -80,17 +102,26 @@ async function searchPlayer() {
       return;
     }
 
-    statusEl.textContent = "";
+    statusEl.textContent = data.cached
+      ? "表示しました（キャッシュ済みデータ）"
+      : "表示しました";
     renderPlayer(data);
   } catch (error) {
     statusEl.textContent = "通信エラーが発生しました。";
   }
 }
 
-searchBtn?.addEventListener("click", searchPlayer);
+searchBtn?.addEventListener("click", () => searchPlayer());
 
 playerTagInput?.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     searchPlayer();
   }
+});
+
+quickTagButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const tag = button.getAttribute("data-tag") || "";
+    searchPlayer(tag);
+  });
 });
