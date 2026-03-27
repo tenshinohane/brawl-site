@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brawl Fan Site</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">BRAWL FAN SITE</div>
+    <nav class="nav">
+      <a href="index.html">ホーム</a>
+      <a href="brawlers.html">ブロウラー</a>
+      <a href="tierlist.html">Tier表</a>
+      <a href="maps.html">マップ</a>
+      <a href="player.html">プレイヤー検索</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="badge">ブロスタ風ファンサイト</p>
+        <h1>最強ブロウラー・Tier表・プレイヤー検索</h1>
+        <p class="hero-text">
+          ブロスタ風のデザインで、キャラ情報・Tier表・マップ情報・プレイヤー情報を見やすくチェック。
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="brawlers.html">ブロウラーを見る</a>
+          <a class="btn secondary" href="player.html">プレイヤー検索</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title-row">
+        <h2 class="section-title">注目ブロウラー</h2>
+      </div>
+      <div id="featuredBrawlers" class="card-grid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-title-row">
+        <h2 class="section-title">最新情報</h2>
+      </div>
+      <div class="news-list">
+        <div class="news-card">
+          <h3>Tier表更新</h3>
+          <p>人気モード向けにおすすめブロウラーを整理。</p>
+        </div>
+        <div class="news-card">
+          <h3>プレイヤー検索追加</h3>
+          <p>プレイヤータグから基本情報を表示できるように準備。</p>
+        </div>
+        <div class="news-card">
+          <h3>マップ攻略ページ拡張</h3>
+          <p>マップごとのおすすめブロウラーを追加。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Fan-made site</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
