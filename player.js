@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://your-railway-url.up.railway.app";
+const API_BASE_URL = "https://brawl-api-production.up.railway.app";
 
 const searchBtn = document.getElementById("searchBtn");
 const playerTagInput = document.getElementById("playerTag");
